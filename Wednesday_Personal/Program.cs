@@ -18,27 +18,14 @@ namespace Wednesday_Personal
             empList.Add(new Employee() { ID = 103, Name = "Hira", Salary = 8000, Experience = 5 });
             empList.Add(new Employee() { ID = 104, Name = "Dayal", Salary = 10000, Experience = 20 });
 
-            IsPromotable isPromotable = new IsPromotable(Promote);
             
             
-            Employee.PromoteEmployee(empList, isPromotable);
+            
+            Employee.PromoteEmployee(empList, emp => emp.Experience >= 5);
             Console.ReadLine();
 
         }
-
-        public static bool Promote(Employee emp)
-        {
-            if(emp.Experience >= 5)
-            {
-                return true;
-            }
-
-            else
-            {
-                return false;
-            }
-        }
-
+              
     }
 
     delegate bool IsPromotable(Employee empl); 
